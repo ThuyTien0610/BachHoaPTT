@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Resources/css/style.css")" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Resources/fonts/fontpoppins.css" rel="stylesheet">
+    <link href="~/Resources/fonts/fontlora.css" rel="stylesheet">
+    <link href="~/Resources/fonts/fontamatic.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Resources/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Resources/css/animate.css">
+    <link href="~/Resources/css/Style_login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Resources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Resources/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Resources/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Resources/css/aos.css">
+
+    <link rel="stylesheet" href="~/Resources/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Resources/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Resources/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Resources/css/flaticon.css">
+    <link rel="stylesheet" href="~/Resources/css/icomoon.css">
+    <link rel="stylesheet" href="~/Resources/css/style.css">
+    <link rel="stylesheet" href="~/Resources/css/searchbutton.css">
+    <link rel="stylesheet" href="~/Resources/css/dndk.css">
+
+</head>
+<body>
+    <div class="py-1 bg-primary">
+        <div class="container">
+            <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+                <div class="col-lg-12 d-block">
+                    <div class="row d-flex">
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                            <span class="text">0964840435</span>
+                        </div>
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                            <span class="text">17110377@student.hcmute.edu.vn</span>
+                        </div>
+                        <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+                            <span class="text">Đặt hàng dễ dàng &amp; Giao hàng nhanh chóng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light navbar-inverse navbar-fixed-top"  id="ftco-navbar2">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href=@Url.Content("~/Home/Index") class="navbar-brand navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <strong class="active" style="color:#82ae46 !important">BÁCH HOÁ PTT</strong>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    @Html.ActionLink("Bách Hoá PTT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+
+            <div class="search">
+                <input class="searchbox" type="text" placeholder="Search" aria-label="Search">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+
+
+                <div class="navbar-collapse collapse" id="ftco-nav2">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="~/Home/Index" class="nav-link">Cửa hàng</a></li>
+                        <li class="nav-item active"><a href="~/Home/Index" class="nav-link">Giới thiệu</a></li>
+                        <li class="nav-item active"><a href="~/Home/Index" class="nav-link">Liên hệ</a></li>
+                        <li class="nav-item active"><a href="~/Home/Login" class="nav-link">Đăng nhập</a></li>
+                        <li class="nav-item active"><a href="~/Home/Register" class="nav-link">Đăng ký</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+            <div class="container">
+                <h2 class="navbar-brand" style="line-height:1.8px !important; box-sizing:border-box !important"><a class="nav-link">@Html.ActionLink("BÁCH HÓA PTT", "Index", "Home")</a></h2>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation"> <span class="oi oi-menu"></span> Menu </button>
+
+                <div class="search">
+                    @*<input class="searchbox" type="text" placeholder="Search" aria-label="Search">
+        <button class="searchbutton">
+            <i class="fa fa-search"></i>
+        </button>*@
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                    {
+                        <input class="searchbox" type="text" name="search" />
+                        <button class="searchbutton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    }
+
+                </div>
+
+
+                <div @*class="collapse navbar-collapse" id="ftco-nav2"*@>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="~/Home/CuaHang" class="nav-link">Cửa hàng</a></li>
+                        <li class="nav-item active"><a href="~/Home/Index" class="nav-link">Giới thiệu</a></li>
+                        <li class="nav-item active"><a href="~/Home/Index" class="nav-link">Liên hệ</a></li>
+                        @*<li class="nav-item active"><a href="#" data-toggle="modal" data-target="#LoginModal" class="nav-link">Đăng nhập</a></li>*@
+                        <li class="nav-item active"><a href="~/Home/Login" class="nav-link">Đăng nhập</a></li>
+                        <li class="nav-item active"><a href="~/Home/Register" class="nav-link">Đăng ký</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @RenderBody()
+        <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+            <div class="container py-4">
+                <div class="row d-flex justify-content-center py-5">
+                    <div class="col-md-6">
+                        <h2 style="font-size: 22px;" class="mb-0">Theo dõi thông tin mới nhất</h2>
+                        Cập nhật những thông tin khuyến mãi từ cửa hàng
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <form class="subscribe-form">
+                            <div class="form-group d-flex">
+                                <input type="text" id="emailValue" class="form-control" placeholder="Địa chỉ email của bạn">
+                                <button type="button" onclick="subcribeEmail()" class="submit px-3">Subcribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="ftco-footer ftco-section">
+            <div class="container">
+                <div class="row">
+                    <div class="mouse">
+                        <a href="#" class="mouse-icon">
+                            <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">BÁCH HÓA PTT</h2>
+                            <p>Luôn cung cấp sản phẩm chất lượng, tươi mới và đảm bảo an toàn cho người dùng.</p>
+                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4 ml-md-5">
+                            <h2 class="ftco-heading-2">Menu</h2>
+                            <ul class="list-unstyled">
+                                <li>Sản phẩm</li>
+                                <li>Thông tin</li>
+                                <li><a href="~/Home/GopY" style="color:green">Góp ý</a></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Hỗ trợ</h2>
+                            <div class="d-flex">
+                                <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                                    <li><a href="#" class="py-2 d-block">Chính sách vận chuyển</a></li>
+                                    <li><a href="#" class="py-2 d-block">Bồi thường &amp; Đổi trả</a></li>
+                                    <li>FAQs</li>
+                                    <li></li>
+                                </ul>
+                                <ul class="list-unstyled">
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Liên hệ</h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">Địa chỉ: 214, Võ Văn Ngân, Quận Thủ Đức, TPHCM</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+84 945 136 073</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">hotro@pttshop.com</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="~/Home/Index" target="_self">PTT</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- loader -->
+        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+        <script src="~/Resources/js/jquery.min.js"></script>
+        <script src="~/Resources/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="~/Resources/js/popper.min.js"></script>
+        <script src="~/Resources/js/bootstrap.min.js"></script>
+        <script src="~/Resources/js/jquery.easing.1.3.js"></script>
+        <script src="~/Resources/js/jquery.waypoints.min.js"></script>
+        <script src="~/Resources/js/jquery.stellar.min.js"></script>
+        <script src="~/Resources/js/owl.carousel.min.js"></script>
+        <script src="~/Resources/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/Resources/js/aos.js"></script>
+        <script src="~/Resources/js/jquery.animateNumber.min.js"></script>
+        <script src="~/Resources/js/bootstrap-datepicker.js"></script>
+        <script src="~/Resources/js/scrollax.min.js"></script>
+        @*<script src="~/Resources/js/google-map.js"></script>*@
+        <script src="~/Resources/js/main.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jquery-3.3.1.js"></script>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function subcribeEmail() {
+        var email = document.getElementById("emailValue").value;
+        $.ajax({
+            type: "POST",
+            url: "../../../Home/Subcribe",
+            data: JSON.stringify({ email: email }),
+            contentType: "application/json",
+
+            success: function (result) {
+                //jQuery.noConflict();
+                //$(".modal-body").text(result.res);
+                window.location.reload();
+                alert(" " + result.valu);
+                //$('#myModal').modal('show');
+            }
+        })
+    }
+</script>
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+
+<style>
+    .searchbox {
+        border: 1px solid #82ae46;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        width: 250px;
+        height: 33px;
+    }
+
+    .search {
+        width: 330px;
+        height: 33px;
+    }
+
+    .searchbutton {
+        width: 40px;
+        height: 33px;
+        border: 1px solid #82ae46;
+        background: #82ae46;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+   
+    }
+
+    .logo {
+        text-align: center;
+    }
+    }
+</style>

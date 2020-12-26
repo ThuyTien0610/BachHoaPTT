@@ -1,0 +1,197 @@
+﻿@model PagedList.IPagedList<BachHoaPTT.Models.TaiKhoan>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Tài Khoản - Bách hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tài Khoản</h2>
+<hr />
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    .searchInput {
+        background-color: white;
+        color: black;
+    }
+</style>
+<link href="~/Content/PagedList.css" rel="stylesheet">
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("Index", "TaiKhoans", FormMethod.Get))
+{
+    <p>
+        @Html.TextBox("SearchString", (string)ViewBag.searchValue, new { @class = "searchInput", @placeholder = "Nhập" }) <input type="submit" value="Tìm kiếm" /> <a class="buttons" href="~/Admin/TaiKhoans/Index">Quay lại</a>
+        @Html.Hidden("page", (object)ViewBag.page)
+        @Html.Hidden("size", (object)ViewBag.pageSize)
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Họ và tên
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Thao tác
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoVaTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @*Html.ActionLink("Xoá", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+<!-- Thêm mã phân trang -->
+<br />
+<div class="row">
+    <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+        @using (Html.BeginForm("Index", "TaiKhoans", FormMethod.Get))
+        {
+            <p>
+                Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+            </p>
+
+            @Html.Hidden("page", (object)ViewBag.page)
+            @Html.Hidden("searchString", (object)ViewBag.searchValue)
+        }
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 text-right">
+        Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    </div>
+</div>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = ViewBag.currentSize, searchString = ViewBag.searchValue }))
+<!-- Kết thúc -->
+@*@model PagedList.IPagedList<BachHoaPTT.Models.TaiKhoan>
+    @using PagedList.Mvc;
+
+
+    @{
+        ViewBag.Title = "Tài khoản - Bách hoá PTT";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <link href="~/Content/PagedList.css" rel="stylesheet">
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <h2 style="text-align:center">Quản lí Tài khoản</h2>
+    <br />
+    <hr />
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+    <p>
+        @Html.ActionLink("Thêm Tài Khoản", "Create", null, new { @class = "btn btn-default", @style = "color:#008DE7" })
+    </p>
+    <div class="main-search" style="background-color:white !important; border:none; top:210px !important; left: 500px">
+        <form style="border:solid thick #008DE7 !important">
+            <input id="searchValue" type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text" />
+            <input type="submit" value="" />
+        </form>
+    </div>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Họ và tên
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sdt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoVaTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@

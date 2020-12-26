@@ -1,0 +1,336 @@
+﻿.my-account-section_header {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+    padding: 22px 0;
+    height: 80px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.my-account-section_header-left {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.my-account-section__header-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #333;
+    text-transform: capitalize;
+}
+
+. my-account-section__header-subtitle {
+    font-size: .875rem;
+    line-height: 1.0625rem;
+    color: #555;
+    margin-top: 3px;
+}
+
+.my-account-profile {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-top: 30px;
+}
+
+.my-account-profile__left {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-right: 50px;
+}
+
+.input-with-label {
+    margin-bottom: 30px;
+}
+
+.my-account-profile__left .input-with-label {
+    margin-bottom: 30px;
+}
+
+.input-with-label__wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.input-with-label__label {
+    width: 20%;
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.input-with-label__content {
+    width: 80%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 1.25rem;
+}
+
+input {
+    line-height: normal;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.input-with-validator {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: .125rem;
+    border: 1px solid rgba(0,0,0,.14);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 0 0 rgba(0,0,0,.02);
+    color: #222;
+    height: 40px;
+    padding: .625rem;
+    -webkit-transition: border-color .1s ease;
+    transition: border-color .1s ease;
+}
+
+.my-account-page__submit {
+    margin-bottom: 60px;
+    padding-left: -webkit-calc(20% + 20px);
+    padding-left: calc(20% + 20px);
+}
+
+.btn-solid-primary {
+    color: #fff;
+    background: #ee4d2d;
+}
+
+.btn--m {
+    height: 40px;
+    padding: 0 20px;
+    min-width: 70px;
+    max-width: 220px;
+}
+
+.btn--inline {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+.btn {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 14px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.09);
+    border-radius: 2px;
+    border: 0;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-transform: capitalize;
+    outline: 0;
+    cursor: pointer;
+}
+
+.my-account-profile__gender .stardust-radio-group {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.stardust-radio {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Roboto, "Droid Sans", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    cursor: default;
+    padding: 16px 12px;
+}
+
+.my-account-profile__gender .stardust-radio {
+    padding: 0;
+    margin-right: .75rem;
+}
+
+.stardust-radio-button {
+    margin-right: 8px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+.stardust-radio-button__outer-circle {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.26);
+    border-image: initial;
+}
+
+    .stardust-radio-button__outer-circle > .stardust-radio-button__inner-circle {
+        width: 6px;
+        height: 6px;
+        opacity: 0;
+        border-radius: 100%;
+        background: rgb(238, 77, 45);
+    }
+
+.stardust-radio__content {
+    cursor: pointer;
+}
+
+.stardust-radio-button__outer-circle {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.26);
+    border-image: initial;
+}
+
+.stardust-radio-button__outer-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    border: 2px solid rgba(0,0,0,.26);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.input-with-label__content, .input-with-label__error, .input-with-label__message {
+    width: 80%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 1.25rem;
+}
+
+.my-account__inline-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.my-account__input-text {
+    font-size: 14px;
+    color: #333;
+}
+
+.my-account-profile__change-button {
+    text-transform: capitalize;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.my-account__no-background-button {
+    border: none;
+    outline: none;
+    background: none;
+    color: #05a;
+    font-size: 13px;
+    text-transform: capitalize;
+}

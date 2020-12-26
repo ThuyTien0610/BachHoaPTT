@@ -1,0 +1,27 @@
+﻿@model BachHoaPTT.Models.LoaiSanPham
+
+@{
+    ViewBag.Title = "Loại sản phẩm - Bách hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết loại sản phẩm</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+
+    </dl>
+</div>
+</br>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLoai }) |
+    @Html.ActionLink("Back to list", "Index")
+</p>

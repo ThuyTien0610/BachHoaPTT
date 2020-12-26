@@ -1,0 +1,90 @@
+﻿@model IEnumerable<BachHoaPTT.Models.SanPham>
+@{
+    ViewBag.Title = "Thức uống - Bách Hoá PTT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<p> &nbsp; &nbsp; &nbsp; </p>
+<hr>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2>
+                    <span>Các sản phẩm</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                string linkHinh = "~/Images/" + item.HinhAnh + ".jpg";
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="~/Home/ChiTietSP/@item.Id" class="img-prod">
+                            <img class="img-fluid" src=@Url.Content(linkHinh) alt="Colorlib Template" style="height:262px !important; width:324px !important">
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <a href="~/Detail/@item.Id" class="nav-link">@item.TenSanPham</a>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><span class="price-sale">@item.Gia đ</span></p>
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    @*<a onclick="tbmuahang(@item.Id)" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                            <span><i class="ion-ios-menu"></i></span>
+                                        </a>
+                                        <a onclick="tbmuahang(@item.Id)" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                            <span><i class="ion-ios-cart"></i></span>
+                                        </a>
+                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                            <span><i class="ion-ios-heart"></i></span>
+                                        </a>*@
+                                    <button id=@item.Id class="add-to-cart btn btn-primary" onclick="tbmuahang(this.id)">
+                                        <i class="glyphicon glyphicon-shopping-cart"></i> THÊM VÀO GIỎ HÀNG
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+<div style="padding:6px;"></div>
+
+<div class="gototop">
+    <button onclick="topFunction()" id="myBtn" title="Về đầu trang"> <i class="fas fa-arrow-up"></i></button>
+</div>
+
+<script type="text/javascript">
+    function tbmuahang(idsp) {
+        $.ajax({
+            type: "POST",
+            url: "ThemSanPhamMua",
+            data: JSON.stringify({ id: idsp }),
+            contentType: "application/json",
+
+            success: function (result) {
+                alert("  " + result.valu + "  ");
+            }
+        })
+    }
+</script>
+<script>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+

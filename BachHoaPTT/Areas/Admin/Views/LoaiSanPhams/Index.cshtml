@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<BachHoaPTT.Models.LoaiSanPham>
+@using PagedList.Mvc;
+
+@{
+    /**/
+
+    ViewBag.Title = "Loại sản phẩm - Bách hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh Mục Sản Phẩm</h2>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    .searchInput {
+        background-color: white;
+        color: black;
+</style>
+<link href="~/Content/PagedList.css" rel="stylesheet">
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("Index", "LoaiSanPhams", FormMethod.Get))
+{
+    <p>
+        @Html.TextBox("SearchString", (string)ViewBag.searchValue, new { @class = "searchInput", @placeholder = "Nhập" }) <input type="submit" value="Tìm kiếm" /> <a class="buttons" href="~/Admin/LoaiSanPhams/Index">Quay lại</a>
+        
+    </p>
+    <p>
+        @Html.ActionLink("Create", "Create")
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Mã loại
+        </th>
+        <th>
+            Tên loại sản phẩm
+        </th>
+        <th>
+            Thao tác
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoai)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaLoai }) |
+                @*Html.ActionLink("Details", "Details", new { id=item.MaLoai }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaLoai })
+            </td>
+        </tr>
+    }
+
+</table>

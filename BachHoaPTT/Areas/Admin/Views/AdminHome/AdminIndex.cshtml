@@ -1,0 +1,179 @@
+﻿@model BachHoaPTT.Areas.Admin.Models.InfoBasic
+@{
+    ViewBag.Title = "Admin - Bách hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Resources/css/canvasjs.min.js"></script>
+<div class="custom-widgets">
+    <div class="row-one">
+        <div class="col-md-3 widget">
+            <div class="stats-left ">
+                <h5>Today</h5>
+                <h4> Users</h4>
+            </div>
+            <div class="stats-right">
+                <label>@Model.SumKH</label>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-3 widget states-mdl">
+            <div class="stats-left">
+                <h5>Today</h5>
+                <h4>Subcribers</h4>
+            </div>
+            <div class="stats-right">
+                <label> @Model.EmailSubcribe</label>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-3 widget states-thrd">
+            <div class="stats-left">
+                <h5>Today</h5>
+                <h4>Task</h4>
+            </div>
+            <div class="stats-right">
+                <label>@Model.DonHangChuaGiao</label>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-3 widget states-last">
+            <div class="stats-left">
+
+                <h4>Doanh thu</h4>
+                <h5>(triệu đồng)</h5>
+            </div>
+            <div class="stats-right">
+                <label>@Model.TongDoanhThu</label>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<hr />
+<strong style="margin-left: 450px">THỐNG KÊ SỐ LƯỢNG SẢN PHẨM BÁN RA THEO TỪNG LOẠI</strong>
+<hr />
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Rau củ"
+	},
+	axisY: {
+		title: "Số lượng"
+	},
+	data: [{
+		type: "column",
+		dataPoints: @Html.Raw(ViewBag.DataPointLoaiMots)
+	}]
+});
+    chart.render();
+    var chart2 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Trái cây"
+	},
+	axisY: {
+		title: "Số lượng"
+	},
+	data: [{
+		type: "column",
+		dataPoints: @Html.Raw(ViewBag.DataPointLoaiHais)
+	}]
+});
+    chart2.render();
+
+    var chart3 = new CanvasJS.Chart("chartContainer3", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Thức uống"
+	},
+	axisY: {
+		title: "Số lượng"
+	},
+	data: [{
+		type: "column",
+		dataPoints: @Html.Raw(ViewBag.DataPointLoaiBas)
+	}]
+});
+    chart3.render();
+
+    var chart4 = new CanvasJS.Chart("chartContainer4", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Thực phẩm khác"
+	},
+	axisY: {
+		title: "Số lượng"
+	},
+	data: [{
+		type: "column",
+		dataPoints: @Html.Raw(ViewBag.DataPointLoaiBons)
+	}]
+});
+    chart4.render();
+
+
+    var chart5 = new CanvasJS.Chart("chart5Container", {
+	animationEnabled: true,
+	title: {
+		text: "Doanh thu theo năm"
+	},
+	axisY: {
+		includeZero: false
+	},
+	toolTip: {
+		shared: true
+	},
+	data: [{
+		type: "line",
+		name: "( triệu đồng )",
+		showInLegend: true,
+		dataPoints: @Html.Raw(ViewBag.DataPointDoanhThu)
+	}]
+});
+chart5.render();
+
+}
+</script>
+<table width="100%" height="350px">
+    <tr style="height: 50px !important">
+        <th style="width:25% !important">
+            Loại 1
+        </th>
+        <th style="width:25% !important">
+            Loại 2
+        </th>
+        <th style="width:25% !important">
+            Loại 3
+        </th>
+        <th style="width:25% !important">
+            Loại 4
+        </th>
+    <tr />
+    <tr style="height: 300px !important">
+        <th>
+            <div id="chartContainer" style="height: 300px; width: 50%;"></div>
+        </th>
+        <th>
+            <div id="chartContainer2" style="height: 300px; width: 50%;"></div>
+        </th>
+        <th>
+            <div id="chartContainer3" style="height: 300px; width: 50%;"></div>
+        </th>
+        <th>
+            <div id="chartContainer4" style="height: 300px; width: 50%;"></div>
+        </th>
+    </tr>
+</table>
+<hr />
+@*<strong style="margin-left: 450px">Doanh thu theo từng năm</strong>*@
+<div id="chart5Container" style="height: 370px; width: 100%;"></div>
+<hr />
+<script src="~/Resources/css/canvasjs.min.js"></script>

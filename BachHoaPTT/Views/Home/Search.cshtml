@@ -1,0 +1,63 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using BachHoaPTT.Models
+@model List<SanPham>
+<h2>Kết Qủa Tìm Kiếm</h2>
+@if (Model == null)
+{
+    <h1>404</h1>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="@Url.Action("ChiTietSP", "Home", new { id = item.Id })" class="img-prod">
+                            <img class="img-fluid" src=@Url.Content("~/Images/" + item.HinhAnh + ".jpg") alt="Colorlib Template" style="height:262px !important; width:324px !important">
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <a href="~/Detail/@item.Id" class="nav-link">@item.TenSanPham</a>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><span class="price-sale">@item.Gia đ</span></p>
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    <button id=@item.Id class="add-to-cart btn btn-primary" onclick="tbmuahang(this.id)">
+                                        <i class="glyphicon glyphicon-shopping-cart"></i> THÊM VÀO GIỎ HÀNG
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+        @*foreach (var item in Model)
+        {
+        <div class="responsive">
+            <div class="gallery">
+                <a href="@Url.Action("ChiTietSP", "Home", new { id = item.Id })"><img class="img-fluid" src=@Url.Content("~/Images/" + item.HinhAnh + ".jpg") alt="Colorlib Template" style="height:262px !important; width:324px !important"></a>
+                <div class="desc">@item.TenSanPham</div>
+            </div>
+        </div>
+
+        }*@
+
+        <div class="clearfix"></div>
+        <div style="padding:6px;"></div>
+
+        }
+

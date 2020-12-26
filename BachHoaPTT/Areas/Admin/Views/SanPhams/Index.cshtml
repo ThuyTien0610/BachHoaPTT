@@ -1,0 +1,125 @@
+﻿@model PagedList.IPagedList<BachHoaPTT.Models.SanPham>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Sản phẩm - Bách hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sản Phẩm</h2>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    .searchInput {
+        background-color: white;
+        color: black;
+    }
+</style>
+<link href="~/Content/PagedList.css" rel="stylesheet">
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("Index", "SanPhams", FormMethod.Get))
+{
+    <p>
+        @Html.TextBox("SearchString", (string)ViewBag.searchValue, new { @class = "searchInput", @placeholder = "Nhập" }) <input type="submit" value="Tìm kiếm" /> <a class="buttons" href="~/Admin/SanPhams/Index">Quay lại</a>
+        @Html.Hidden("page", (object)ViewBag.page)
+        @Html.Hidden("size", (object)ViewBag.pageSize)
+    </p>
+    <p>
+        @Html.ActionLink("Create", "Create")
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Mã loại
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>
+            Thao tác
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width:150px">
+                @Html.DisplayFor(modelItem => item.TenSanPham)
+            </td>
+            <td style="width:450px">
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                <img src=@Url.Content("~/Images/"+item.HinhAnh+".jpg") style="height:80px; width:80px">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLoai)
+            </td>
+            <td>
+                @if (item.Status == true)
+                {
+                    <p>Có sẵn</p>
+                }
+                else
+                {
+                    <p>Không phục vụ</p>
+                }
+                <p></p>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<!-- Thêm mã phân trang -->
+<br />
+<div class="row">
+    <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+        @using (Html.BeginForm("Index", "SanPhams", FormMethod.Get))
+        {
+            <p>
+                Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+            </p>
+
+            @Html.Hidden("page", (object)ViewBag.page)
+            @Html.Hidden("searchString", (object)ViewBag.searchValue)
+        }
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 text-right">
+        Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    </div>
+</div>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = ViewBag.currentSize, searchString = ViewBag.searchValue }))

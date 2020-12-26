@@ -1,0 +1,192 @@
+﻿@model PagedList.IPagedList<BachHoaPTT.Models.GiaoDich>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Giao dịch - Bách hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đơn Hàng - Giao Dịch</h2>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    .searchInput {
+        background-color: white;
+        color: black;
+    }
+</style>
+<link href="~/Content/PagedList.css" rel="stylesheet">
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("Index", "GiaoDiches", FormMethod.Get))
+{
+    <p>
+        @Html.TextBox("SearchString", (string)ViewBag.searchValue, new {   @class = "searchInput", @placeholder = "Nhập"  }) <input type="submit" value="Tìm kiếm" /> <a class="buttons" href="~/Admin/GiaoDiches/Index">Quay lại</a>
+        @Html.Hidden("page", (object)ViewBag.page)
+        @Html.Hidden("size", (object)ViewBag.pageSize)
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Mã đơn
+        </th>
+        <th>
+            Mã khách hàng
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th>
+            Thời gian
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Thao tác
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<!-- Thêm mã phân trang -->
+<br />
+<div class="row">
+    <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+        @using (Html.BeginForm("Index", "GiaoDiches", FormMethod.Get))
+        {
+            <p>
+                Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+            </p>
+
+            @Html.Hidden("page", (object)ViewBag.page)
+            @Html.Hidden("searchString", (object)ViewBag.searchValue)
+        }
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 text-right">
+        Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    </div>
+</div>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = ViewBag.currentSize, searchString = ViewBag.searchValue }))
+<!-- Kết thúc -->
+
+@*@model PagedList.IPagedList<BachHoaPTT.Models.GiaoDich>
+    @using PagedList.Mvc;
+
+
+    @{
+        ViewBag.Title = "Giao dịch - Bách hoá PTT";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+    <link href="~/Content/PagedList.css" rel="stylesheet">
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <div class="main-search" style="background-color:white !important; border:none; top:210px !important; left: 240px">
+        <form style="border:solid thick #008DE7 !important">
+            <input id="searchValue" type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text" />
+            <input type="submit" value="" />
+        </form>
+    </div>
+    <h2 style="text-align:center">Giao Dịch</h2>
+    <hr />
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                Mã đơn
+            </th>
+            <th>
+                Mã khách hàng
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th>
+                Thời gian
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaKhachHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThoiGian)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrangThai)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@

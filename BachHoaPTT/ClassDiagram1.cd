@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BachHoaPTT.Areas.Customer.Controllers.CustomerHomeController">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEGAQAAAAQAwAIQAAAAAACBAAMCAAAAAAAABAIAiAAA=</HashCode>
+      <FileName>Areas\Customer\Controllers\CustomerHomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BachHoaPTT.Areas.Admin.Controllers.AdminHomeController">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgBAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\AdminHomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BachHoaPTT.Areas.Admin.Controllers.LoaiSanPhamsController">
+    <Position X="2.5" Y="2.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="BachHoaPTT.Areas.Admin.Controllers.LoaiSanPhamsController.HttpParamActionAttribute" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Areas\Admin\Controllers\LoaiSanPhamsController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\LoaiSanPhamsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BachHoaPTT.Areas.Admin.Controllers.GiaoDichesController">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="BachHoaPTT.Areas.Admin.Controllers.GiaoDichesController.HttpParamActionAttribute" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Areas\Admin\Controllers\GiaoDichesController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARBAAAAAAAAAAAAAAAAAACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\GiaoDichesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BachHoaPTT.Areas.Admin.Controllers.SanPhamsController">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="BachHoaPTT.Areas.Admin.Controllers.SanPhamsController.HttpParamActionAttribute" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Areas\Admin\Controllers\SanPhamsController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARBAAAAAAAAAAAAAAAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\SanPhamsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BachHoaPTT.Areas.Admin.Controllers.TaiKhoansController">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="BachHoaPTT.Areas.Admin.Controllers.TaiKhoansController.HttpParamActionAttribute" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Areas\Admin\Controllers\TaiKhoansController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARBAAAAAAAAAAAAAAAAAACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\TaiKhoansController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BachHoaPTT.Areas.Admin.Controllers.ThongKeController">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAIAIAAAAAAAAAAAAAEAQgAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\ThongKeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BachHoaPTT.Controllers.HomeController">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgAQAwAIAEAAAAAAAAAEABAAAAAAEQQIAigUA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

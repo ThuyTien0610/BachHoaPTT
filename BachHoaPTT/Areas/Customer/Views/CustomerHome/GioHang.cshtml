@@ -1,0 +1,94 @@
+﻿@model IEnumerable<BachHoaPTT.Models.GioHang>
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, tr, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+<div class="logo">
+    <h2>Giỏ hàng</h2>
+</div>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            Tên Sản Phẩm
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Tổng Tiền
+        </th>
+        <th></th>
+    </tr>
+
+    @{
+        decimal s = 0;
+    }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+                @{
+                    s += @item.ThanhTien;
+                }
+            </td>
+            <td>
+                @*@Html.ActionLink("Xoá", "Delete", "DonHang", new { id = item.Id })*@
+                @*<a class="icon icon-delete"*@
+                <button id=@item.MaSanPham class="btn btn-lg btn-primary btn-sm" onclick="XoaSanPham(this.id)">
+                    <i class="icon-delete_forever"></i> Xoá
+                </button>
+            </td>
+            
+        </tr>
+    }
+
+</table>
+<div class="logo">
+    <strong>TỔNG GIỎ HÀNG:  @s đ</strong> @*@Html.ActionLink("Đặt hàng","DatHang")*@
+</div>
+</br>
+<div class="logo">
+    <a class="btn btn-lg btn-primary " href="/Customer/CustomerHome/DatHang" role="button">Đặt hàng</a>
+</div>
+<script type="text/javascript">
+    function XoaSanPham(idsp) {
+        $.ajax({
+            type: "POST",
+            url: "XoaSanPhamMua",
+            data: JSON.stringify({ id: idsp }),
+            contentType: "application/json",
+
+            success: function (result) {
+
+                window.location.reload();
+                alert("Đã xoá " + result.tenSP + " khỏi giỏ hàng !!!");
+            }
+        })
+
+    }
+</script>
+

@@ -1,0 +1,109 @@
+﻿@model BachHoaPTT.Areas.Customer.Models.DetailDonHang
+@{
+    ViewBag.Title = "Đặt hàng - Bách Hoá PTT";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-wrap hero-bread" style="background-image: url(../../Images/bg_1.jpg);">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>Thanh toán</span></p>
+                <h1 class="mb-0 bread">Đặt hàng</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 ftco-animate">
+                <form action="#" class="billing-form">
+                    <h3 class="mb-4 billing-heading">Thông Tin</h3>
+                    <div class="row align-items-end">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="lastname">Họ và Tên</label>
+                                <input type="text" readonly class="form-control" value="@Model.TenKhachHang">
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="country">Số điện thoại</label>
+                                <input type="text" class="form-control" readonly value="@Session["UserSdt"]">
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="streetaddress">Địa Chỉ</label>
+                                <input type="text" class="form-control" id="diachi" value="@Model.DiaChi" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="streetaddress">Tổng đơn hàng</label>
+                                <input type="text" class="form-control" readonly value="@Model.TongTien đ">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table class="table ">
+        <tr>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Thành tiền
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ListGioHang)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThanhTien) đ
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</section>
+@*<div class="logo">
+    <strong style="text-align:center"> TỔNG ĐƠN HÀNG: @Model.TongTien đ</strong>
+</div> &nbsp; &nbsp; &nbsp;*@
+@*&nbsp; &nbsp; &nbsp;*@<p style="text-align:center"><button onclick="dathang()" class="btn btn-primary py-3 px-4">Hoàn Thành Đơn Hàng</button></p>
+<script type="text/javascript">
+    function dathang() {
+        var diachi = document.getElementById('diachi').value;
+        $.ajax({
+            type: "POST",
+            url: "HoanThanh",
+            data: JSON.stringify({ id: diachi }),
+            contentType: "application/json",
+
+            success: function (result) {
+
+                window.location.href = "CustomerIndex";
+                alert(" " + result.valu + " ");
+            }
+        })
+
+    }
+</script>
+

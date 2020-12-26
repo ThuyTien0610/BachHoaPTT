@@ -1,0 +1,99 @@
+﻿@model BachHoaPTT.Models.TaiKhoan
+@{
+    ViewBag.Title = "Đổi mật khẩu - Bách hoá PTT";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Resources/css/TaiKhoanCuaToi.css")" rel="stylesheet" type="text/css" />
+<div class="outter-wp">
+    <div class="custom-widgets">
+        <div class="my-account-section">
+            <div class="my-account-section_header">
+                <div class="my-account-section_header-left">
+                    <div class="logo">
+                        <div class="my-account-section__header-title"><h4>Đổi Mật Khẩu</h4></div>
+                        <div class="my-account-section__header-subtitle"><h6>Khách Hàng vui lòng nhập đầy đủ các thông tin dưới đây</h6></div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-account-profile">
+                <div class="my-account-profile__left">
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Họ tên</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator">@Model.HoVaTen</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Số điện thoại</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator">@Model.Sdt</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Mật khẩu cũ</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator"><input type="password" required placeholder="Mật khẩu cũ" id="matkhaucu"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Mật khẩu mới</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator"><input type="password" required placeholder="Mật khẩu mới" id="matkhaumoi"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Xác nhận</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator"><input type="password" required placeholder="Nhập lại mật khẩu mới" value="" id="nhaplai"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-account-page__submit">
+                        <button onclick="DoiMatKhau()" type="button" class="btn btn-solid-primary btn--m btn--inline" aria-disabled="false">Đổi mật khẩu</button>
+                    </div>
+                </div>
+                <div class="my-account-profile__right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function DoiMatKhau() {
+        var matkhau = document.getElementById("matkhaumoi").value;
+        var nhaplai = document.getElementById("nhaplai").value;
+        var matkhaucu = document.getElementById("matkhaucu").value;
+        $.ajax({
+            type: "POST",
+            url: "DoiMatKhau",
+            data: JSON.stringify({ matkhau: matkhau, nhaplai: nhaplai, matkhaucu: matkhaucu }),
+            contentType: "application/json",
+
+            success: function (result) {
+
+                window.location.reload();
+                alert(" " + result.valu);
+            }
+        })
+
+    }
+</script>

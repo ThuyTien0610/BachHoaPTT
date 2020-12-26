@@ -1,0 +1,158 @@
+﻿@model BachHoaPTT.Areas.Admin.Models.DetailDonHang
+@{
+    ViewBag.Title = "Chi tiết đơn hàng - Bách Hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết đơn hàng</h2>
+</br>
+<div>
+    <h4>Mã đơn hàng: @Model.MaDon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã Khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKhachHang)
+        </dd>
+
+        <dt>
+            Tên Khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKhachHang)
+        </dd>
+
+        <dt>
+            Thời gian đặt đơn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGian)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+    <p>
+        &nbsp;
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Mã sản phẩm
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Thành tiền
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ListGioHang)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThanhTien)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <hr />
+    <strong> Tổng đơn hàng: @Model.TongTien đ</strong> &nbsp; &nbsp;
+    </br>
+    <strong> Trạng thái đơn hàng: @Model.TinhTrang</strong>
+    <hr />
+    <p>
+        @Html.ActionLink("Back to list", "Index")
+    </p>
+</div>
+
+
+
+@*@model BachHoaPTT.Models.GiaoDich
+
+    @{
+        ViewBag.Title = "Giao dịch - Bách hoá PTT";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Chi tiết</h2>
+
+    <div>
+        <h4>Giao dịch</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaDon)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaDon)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaKhachHang)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaKhachHang)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TongTien)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TongTien)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ThoiGian)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGian)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TrangThai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TrangThai)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Quay lại", "Index")
+    </p>*@

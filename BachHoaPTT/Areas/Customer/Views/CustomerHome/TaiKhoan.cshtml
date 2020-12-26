@@ -1,0 +1,155 @@
+﻿@model BachHoaPTT.Models.TaiKhoan
+@{
+    ViewBag.Title = "Tài khoản - Bách hoá PTT";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Resources/css/TaiKhoanCuaToi.css")" rel="stylesheet" type="text/css" />
+<div class="outter-wp">
+    <div class="custom-widgets">
+        <div class="my-account-section">
+            <div class="my-account-section_header">
+                <div class="my-account-section_header-left">
+                    <div class="logo">
+                        <div class="my-account-section__header-title"><h4>Hồ Sơ Của Tôi</h4></div>
+                        <div class="my-account-section__header-subtitle"><h6>Quản lý thông tin hồ sơ để bảo mật tài khoản</h6></div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-account-profile">
+                <div class="my-account-profile__left">
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Họ Và Tên</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator"><input type="text" placeholder="" value="@Model.HoVaTen" id="inputhoten"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Email</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator"><input type="text" placeholder="" value="@Model.Email" id="inputemail"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Số điện thoại</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator">@Model.Sdt</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Địa chỉ</label></div>
+                            <div class="input-with-label__content">
+                                <div class="input-with-validator-wrapper">
+                                    <div class="input-with-validator"><input type="text" placeholder="" value="@Model.DiaChi" id="inputdiachi"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-with-label">
+                        <div class="input-with-label__wrapper">
+                            <div class="input-with-label__label"><label>Giới tính</label></div>
+                            <div class="input-with-label__content">
+                                <div class="my-account-profile__gender">
+                                    <div class="stardust-radio-group">
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle" style="background-color:black !important" id="male">
+                                                    <div class="stardust-radio-button__inner-circle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label" onclick="changeFe()">Nữ</div>
+                                            </div>
+                                        </div>
+                                        <div class="stardust-radio stardust-radio--checked">
+                                            <div class="stardust-radio-button stardust-radio-button--checked">
+                                                <div class="stardust-radio-button__outer-circle"  id="female">
+                                                    <div class="stardust-radio-button__inner-circle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label" onclick="changeMale()">Nam</div>
+                                            </div>
+                                        </div>
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle" id="dif">
+                                                    <div class="stardust-radio-button__inner-circle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label" onclick="change()">Khác</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-account-page__submit">
+                        <button type="button" onclick="DoiThongTin()" class="btn btn-solid-primary btn--m btn--inline" aria-disabled="false">Save</button>
+                    </div>
+                </div>
+                <div class="my-account-profile__right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function DoiThongTin() {
+        var hoten = document.getElementById("inputhoten").value;
+        var email = document.getElementById("inputemail").value;
+        var diachi = document.getElementById("inputdiachi").value;
+        $.ajax({
+            type: "POST",
+            url: "DoiThongTin",
+            data: JSON.stringify({ hoten: hoten, email: email, diachi: diachi }),
+            contentType: "application/json",
+
+            success: function (result) {
+
+                window.location.reload();
+                alert(" " + result.valu);
+            }
+        })
+    }
+</script>
+<script type="text/javascript">
+    function changeMale() {
+        document.getElementById('male').style.backgroundColor = "black";
+        document.getElementById('female').style.backgroundColor = "white";
+        document.getElementById('dif').style.backgroundColor = "white";
+    }
+    function changeFe() {
+        document.getElementById('female').style.backgroundColor = "black";
+        document.getElementById('male').style.backgroundColor = "white";
+        document.getElementById('dif').style.backgroundColor = "white";
+    }
+    function change() {
+        document.getElementById('female').style.backgroundColor = "white";
+        document.getElementById('male').style.backgroundColor = "white";
+        document.getElementById('dif').style.backgroundColor = "black";
+    }
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        if (@Model.GioiTinh.ToString()== "Nam")
+            changeMale();
+        else
+            changeFe();
+    };
+</script>

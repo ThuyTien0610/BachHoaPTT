@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BachHoaPTT.Models.PhanHoi>
+
+@{
+    ViewBag.Title = "Góp ý - Bách Hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Phản Hồi</h2>
+<hr />
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+<table class="table">
+    <tr>
+        <th>
+            Họ và Tên
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Ý kiến phản hồi
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:200px">
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td style="width:250px">
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+    </tr>
+}
+
+</table>

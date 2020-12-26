@@ -1,0 +1,57 @@
+﻿@model BachHoaPTT.Models.PhanHoi
+
+@{
+    ViewBag.Title = "Phản Hồi - Bách Hoá PTT";
+}
+
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="hero-wrap hero-bread" style="background-image: url('../../Images/bg_1.jpg');">
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                    <h3>Chào mừng</h3>
+                    <p>Đến với bách hóa PTT</p>
+                </div>
+                <div class="col-md-9 register-right">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div>
+                                        @Html.ValidationSummary(true, "", new { @style = "color:red !important; font-size:20px !important" })
+                                    </div>
+                                    <div class="form-group">
+
+                                        @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control", @placeholder = "Họ và tên*" } })
+                                        @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email*" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control", @placeholder = "Góp Ý*" } })
+                                        @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div>
+                                        <input type="submit" value="Phản Hồi" class="btn btn-lg btn-primary btn-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+

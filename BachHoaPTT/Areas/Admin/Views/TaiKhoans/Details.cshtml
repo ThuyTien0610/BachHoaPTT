@@ -1,0 +1,66 @@
+﻿@model BachHoaPTT.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Tài khoản - Bách hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2>Thông tin chi tiết tài khoản</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sdt)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>*@
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Họ và Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoVaTen)
+        </dd>
+
+        <dt>
+            Giới tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+    </dl>
+</div>
+</br>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

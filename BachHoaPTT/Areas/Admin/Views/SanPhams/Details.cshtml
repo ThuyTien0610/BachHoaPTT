@@ -1,0 +1,106 @@
+﻿@*model BachHoaPTT.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h2>Chi tiết Sản Phẩm</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <h4>Tên Sản Phẩm</h4>
+            @*Html.DisplayNameFor(model => model.TenSanPham)
+        </dt>
+        </br>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSanPham)
+        </dd>
+
+        <dt>
+            Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            Html.DisplayFor(model => model.HinhAnh)
+        </dd>
+
+        <dt>
+            Html.DisplayNameFor(model => model.MaLoai)
+        </dt>
+
+        <dd>
+            Html.DisplayFor(model => model.MaLoai)
+        </dd>
+
+        <dt>
+            Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>*@
+@model BachHoaPTT.Models.SanPham
+
+
+@{
+    ViewBag.Title = @Model.TenSanPham + " - Bách Hoá PTT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a href=@Url.Content("~/Images/"+Model.HinhAnh+".jpg") class="image-popup"><img src=@Url.Content("~/Images/"+Model.HinhAnh+".jpg") class="img-fluid" alt="Colorlib Template" width="500px" height="400px"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <h3> @Model.TenSanPham</h3>
+                </br>
+                <p class="price"><span>@Model.Gia đ</span></p>
+                <p>@Model.MoTa <p>
+
+                </br>
+                <p> <b>THÔNG TIN SẢN PHẨM</b></p>
+
+                <p>Xuất xứ: Công Ty TNHH Đà Lạt G.A.P</p>
+
+                <p>Quy cách: 1kg/Túi</p>
+
+                <p>Đơn vị tính: Túi</p>
+
+                <p>Sử dụng: Chế biến món tùy thích</p>
+
+                <p>Bảo quản: Bảo quản nơi khô ráo thoáng mát</p>
+
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

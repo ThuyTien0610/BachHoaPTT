@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aabc2f1703044364b5a30f6a7b6027d8" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.DonHang" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.EmailSubcribed" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.GiaoDich" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.GioHang" Width="1.5" PointX="3" PointY="2.25" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.LoaiSanPham" Width="1.5" PointX="1.5" PointY="14.875" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.MaXacNhan" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.PhanHoi" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.Role" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.SanPham" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BachHoaPTTdb_CNPMModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="5.125" />
+        <AssociationConnector Association="BachHoaPTTdb_CNPMModel.FK_DonHang_GiaoDich" />
+        <AssociationConnector Association="BachHoaPTTdb_CNPMModel.FK_GiaoDich_TaiKhoan" />
+        <AssociationConnector Association="BachHoaPTTdb_CNPMModel.FK_GioHang_SanPham1" />
+        <AssociationConnector Association="BachHoaPTTdb_CNPMModel.FK_GioHang_TaiKhoan" />
+        <AssociationConnector Association="BachHoaPTTdb_CNPMModel.FK_SanPham_LoaiSanPham" />
+        <AssociationConnector Association="BachHoaPTTdb_CNPMModel.FK_MaXacNhan_TaiKhoan" />
+        <AssociationConnector Association="BachHoaPTTdb_CNPMModel.FK_Role_TaiKhoan" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
