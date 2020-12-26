@@ -154,6 +154,7 @@ namespace BachHoaPTT.Areas.Customer.Controllers
         public ActionResult DoiMatKhau(string matkhau, string nhaplai, string matkhaucu)
         {
             string id = Session["UserId"].ToString();
+            //edit
             TaiKhoan tk = db.TaiKhoans.Find(id);
             string kq = "";
             if (Encryptor.MD5Hash(matkhaucu) == tk.MatKhau)
